@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <style>
+        :root{
+        --purple: rgb(128, 0, 128);
+        --yellow: rgb(255, 255, 0);
+        }
+        
+    body{  
+          background-color: var(--dark);
+          margin: 0px;
+    }
+    .side{
+        height: 100vh;
+        width: 100%;
+    
+        display: grid;
+        place-items: center;
+             
+        overflow: hidden;
+        position: absolute;
+   
+    }
+    .side .title {
+        color: rgb(0, 0, 0);
+        font-family: "Helvetica Neue",Helvetica;
+        font-size: 8vw;
+        margin: 0px 15vw;
+        width: 70vw;
+    }
+
+    #left-side{
+        background-color:var(--purple);
+        z-index: 2;
+    }
+    #left-side .title {  
+          color: white;  
+        }
+        
+        #left-side .fancy {
+          color: var(--yellow);/*colour to the word gratefull*/
+        }
+
+    #right-side{
+        background-color:var(--yellow);
+
+    }
+    #right-side .title {
+          color: var(--dark);
+        }
+        
+        #right-side .fancy {
+          color: var(--purple);/*colour to the word yourself*/
+        }
+        </style>
+</head>
+
+<body>
+    <div id="left-side" class="side">
+        <h2 class="title">
+            Be 
+            <span class="fancy">grateful.</span>
+        </h2>
+    </div>
+    <div id="right-side" class="side">
+        <h2 class="title">
+            Be 
+            <span class="fancy">yourself.</span>
+        </h2>                                                           
+    </div>
+
+    <script >
+        const left = document.getElementById("left-side");
+        const handleOnMove = e => {
+            left.style.width  =`${e.clientX / window.innerWidth* 100}%`;
+            
+        }
+        document.onmousemove = e => handleOnMove(e);
+        document.onmousedown = e => handleOnMove(e.touches[0]);
+    </script>
+</body>
+
+</html>
